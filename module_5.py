@@ -1,6 +1,6 @@
 num_list = [7, 5, 4, 4, 2]
 n = int(input('Введи номер рейтинга: '))
-print('\nСписок рейтенгов ', num_list)
+print('\nСписок рейтингов ', num_list)
 
 for i in range(len(num_list)):
     if num_list[-1] > n:
@@ -12,4 +12,4 @@ for i in range(len(num_list)):
     elif num_list[i] == n:
         num_list.insert(i + 1, n)
         break
-print('Новый список рейтенгов ', num_list)
+print('Новый список рейтингов ', num_list)
