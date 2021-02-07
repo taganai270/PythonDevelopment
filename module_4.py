@@ -1,6 +1,11 @@
-st = input('Введите слова через пробел: ').split()
-n = 1
-for world in st:
-    print(n, world[:10])
-    n +=1
+def my_func(x, y):
+    i = 0
+    a = 1
+    while i < abs(y):
+        a = a*x
+        i += 1
+    return 1 / a
+
+
+#print(my_func(8, -2))
 

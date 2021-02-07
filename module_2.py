@@ -1,8 +1,16 @@
-list_1 = list(input('Наполните список различными символами: '))
-j = 0
 
-for i in range(int(len(list_1)) // 2):
-    list_1[j], list_1[j+1] = list_1[j+1], list_1[j]
-    j += 2
-print(list_1)
+# name = input('Введите имя: ')
+# surname = input('Введите фамилию: ')
+# data = int(input('Введите год: '))
+# town = input('Введите город: ')
+# mail = input('Ввелите почту: ')
+# phone = input('Введите номер телефона: ')
+
+def user_data(name, surname, data, town, mail, phone):
+    return ' '.join([name, surname, data, town, mail, phone])
+print(user_data(name ='Tom', surname ='Sawyer', data ='1876', town ='Piter', mail ='mail', phone = '911' ))
+
+
+
+
 

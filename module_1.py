@@ -1,4 +1,20 @@
-my_list = [(1, 2, 3), True, {'cat':'кот', 'dog':'пёс'}, 3.14, 'TODO']
-for i in my_list:
-    print(f'{i} - это  {type(i)}')
+def quotient():
+    try:
+        a = int(input('Введите число: '))
+        b = int(input('Введите число: '))
+        return a / b
+    except ZeroDivisionError:
+        print('На 0 делить нельзя!')
+    finally:
+        print('Выход из фукции')
+
+
+
+
+
+
+
+
+
+
 
