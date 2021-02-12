@@ -1,16 +1,5 @@
-
-# name = input('Введите имя: ')
-# surname = input('Введите фамилию: ')
-# data = int(input('Введите год: '))
-# town = input('Введите город: ')
-# mail = input('Ввелите почту: ')
-# phone = input('Введите номер телефона: ')
-
-def user_data(name, surname, data, town, mail, phone):
-    return ' '.join([name, surname, data, town, mail, phone])
-print(user_data(name ='Tom', surname ='Sawyer', data ='1876', town ='Piter', mail ='mail', phone = '911' ))
-
-
-
-
-
+lst_1 = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+if lst_1[0] > lst_1[1]:
+    lst_1.remove(lst_1[0])
+new_list = [x for i, x in enumerate(lst_1) if lst_1[i-1] < lst_1[i]]
+print(new_list)
