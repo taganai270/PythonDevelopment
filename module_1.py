@@ -1,20 +1,8 @@
-def quotient():
-    try:
-        a = int(input('Введите число: '))
-        b = int(input('Введите число: '))
-        return a / b
-    except ZeroDivisionError:
-        print('На 0 делить нельзя!')
-    finally:
-        print('Выход из фукции')
-
-
-
-
-
-
-
-
-
-
-
+file_1 = open('text_1.txt', 'w')
+f_str = input('Введите данные: ')
+while True:
+    print(f'{f_str}', file=file_1)
+    f_str = input('Введите данные: ')
+    if f_str == '':
+        break
+file_1.close()

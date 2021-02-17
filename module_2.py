@@ -1,16 +1,11 @@
+with open('text_1.txt') as file_2:
+    lines_f = 0
+    list_f = []
 
-# name = input('Введите имя: ')
-# surname = input('Введите фамилию: ')
-# data = int(input('Введите год: '))
-# town = input('Введите город: ')
-# mail = input('Ввелите почту: ')
-# phone = input('Введите номер телефона: ')
+    for line in file_2:
+        for word in line.split():
+            list_f.append(word)
+        lines_f += 1
 
-def user_data(name, surname, data, town, mail, phone):
-    return ' '.join([name, surname, data, town, mail, phone])
-print(user_data(name ='Tom', surname ='Sawyer', data ='1876', town ='Piter', mail ='mail', phone = '911' ))
-
-
-
-
-
+print(f'Количество строк в файле "{file_2.name}" - {lines_f}')
+print(f'Количество слов в файле "{file_2.name}" - {len(list_f)}')
