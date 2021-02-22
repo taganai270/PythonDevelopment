@@ -1,14 +1,25 @@
+'''
+2. Реализовать класс Road (дорога).
+● определить атрибуты: length (длина), width (ширина);
+● значения атрибутов должны передаваться при создании экземпляра класса;
+● атрибуты сделать защищёнными;
+● определить метод расчёта массы асфальта, необходимого для покрытия всей дороги;
+● использовать формулу: длина*ширина*масса асфальта для покрытия одного кв. метра
+дороги асфальтом, толщиной в 1 см*число см толщины полотна;
+● проверить работу метода.
+Например: 20 м*5000 м*25 кг*5 см = 1 2500 т.
+'''
 
-# name = input('Введите имя: ')
-# surname = input('Введите фамилию: ')
-# data = int(input('Введите год: '))
-# town = input('Введите город: ')
-# mail = input('Ввелите почту: ')
-# phone = input('Введите номер телефона: ')
+class Road:
+    _lenght = float
+    _width = float
 
-def user_data(name, surname, data, town, mail, phone):
-    return ' '.join([name, surname, data, town, mail, phone])
-print(user_data(name ='Tom', surname ='Sawyer', data ='1876', town ='Piter', mail ='mail', phone = '911' ))
+    def __init__(self, lenght, width):
+        self._lenght = lenght
+        self._width = width
+        print(lenght * width * 25 * 0.5, 'T')
+
+r = Road(20, 5000)
 
 
 
