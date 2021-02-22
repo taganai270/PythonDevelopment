@@ -1,20 +1,11 @@
-def quotient():
-    try:
-        a = int(input('Введите число: '))
-        b = int(input('Введите число: '))
-        return a / b
-    except ZeroDivisionError:
-        print('На 0 делить нельзя!')
-    finally:
-        print('Выход из фукции')
+from sys import argv
 
 
+name, opening_hours, rate, prize = argv
+def func_w():
+    wages = (int(opening_hours) * int(rate)) + int(prize)
+    return wages
 
-
-
-
-
-
-
-
+func_w()
+print(f'Заработная плата равна: {func_w()}')
 

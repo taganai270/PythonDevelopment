@@ -1,8 +1,2 @@
-def my_func(a, b, c):
-    list_val = sorted([a,b,c])
-    sum_val = list_val[1] + list_val[2]
-    print(sum_val)
-    return
-
-my_func(2,7,1)
-
+num_lst = [x for x in range(20, 241) if x % 20 == 0 or x % 21 == 0]
+print(num_lst)
