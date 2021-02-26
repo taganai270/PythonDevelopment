@@ -1,38 +1,70 @@
-'''
-3. Реализовать базовый класс Worker (работник).
-● определить атрибуты: name, surname, position (должность), income (доход);
-● последний атрибут должен быть защищённым и ссылаться на словарь, содержащий
-элементы: оклад и премия, например, {"wage": wage, "bonus": bonus};
-● создать класс Position (должность) на базе класса Worker;
-● в классе Position реализовать методы получения полного имени сотрудника
-(get_full_name) и дохода с учётом премии (get_total_income);
-● проверить работу примера на реальных данных: создать экземпляры класса Position,
-передать данные, проверить значения атрибутов, вызвать методы экземпляров.
-'''
+"""
+3) Реализовать программу работы с органическими клетками, состоящими из ячеек. Необходимо
+создать класс Клетка. В его конструкторе инициализировать параметр, соответствующий
+количеству ячеек клетки (целое число). В классе должны быть реализованы методы
+перегрузки арифметических операторов: сложение (__add__()), вычитание (__sub__()),
+умножение (__mul__()), деление (__truediv__()). Данные методы должны применяться только
+к клеткам и выполнять увеличение, уменьшение, умножение и целочисленное (с округлением
+до целого) деление клеток, соответственно.
+Сложение. Объединение двух клеток. При этом число ячеек общей клетки должно равняться
+сумме ячеек исходных двух клеток.
 
-class Worker:
-    name = str
-    surname = str
-    position = str
-    _income = int
+Вычитание. Участвуют две клетки. Операцию необходимо выполнять только если разность
+количества ячеек двух клеток больше нуля, иначе выводить соответствующее сообщение.
+
+Умножение. Создается общая клетка из двух. Число ячеек общей клетки определяется как
+произведение количества ячеек этих двух клеток.
+
+Деление. Создается общая клетка из двух. Число ячеек общей клетки определяется как
+целочисленное деление количества ячеек этих двух клеток.
+
+В классе необходимо реализовать метод make_order(), принимающий экземпляр класса и
+количество ячеек в ряду. Данный метод позволяет организовать ячейки по рядам.
+Метод должен возвращать строку вида *****\n*****\n*****..., где количество ячеек между \n
+равно переданному аргументу. Если ячеек на формирование ряда не хватает, то в последний
+ряд записываются все оставшиеся.
+Например, количество ячеек клетки равняется 12, количество ячеек в ряду — 5. Тогда метод
+make_order() вернет строку: *****\n*****\n**.
+Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод
+make_order() вернет строку: *****\n*****\n*****
+"""
 
 
-    def __init__(self, name, surname, position, wage, bonus):
-        self.name = name
-        self.surname = surname
-        self.position = position
-        self._income = {"wage": wage, "bonus": bonus}
+class Cell:
+    def __init__(self, quantity):
+        self.quantity = int(quantity)
+
+    def __str__(self):
+        return f'Результат операции {self.quantity * "*"}'
+
+    def __add__(self, other):
+        return Cell(self.quantity + other.quantity)
+
+    def __sub__(self, other):
+        if (self.quantity - other.quantity) > 0:
+            return self.quantity - other.quantity
+        else:
+            return 'Результат меньше 0!'
+
+    def __mul__(self, other):
+        return Cell(int(self.quantity * other.quantity))
+
+    def __truediv__(self, other):
+        return Cell(round(self.quantity // other.quantity))
+
+    def make_order(self, cells_in_line):
+        line = ''
+        for i in range(int(self.quantity / cells_in_line)):
+            line += f'{"*" * cells_in_line} \\n'
+        line += f'{"*" * (self.quantity % cells_in_line)}'
+        return line
 
 
-class Position(Worker):
-
-    def get_full_name(self):
-        return ' '.join([self.name, self.surname])
-
-
-    def get_total_income(self):
-        return sum(self._income.values())
-
-w = Position('Bruce', 'Lee', 'actor', 100000, 30000)
-print(w.get_full_name())
-print(w.get_total_income())
+cells1 = Cell(11)
+cells2 = Cell(7)
+print(cells1)
+print(cells1 + cells2)
+print(cells2 - cells1)
+print(cells2.make_order(7))
+print(cells1.make_order(16))
+print(cells1 / cells2)
